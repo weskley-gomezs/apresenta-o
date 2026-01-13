@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { askPedagogyAssistant } from '../services/geminiService.ts';
-import { ChatMessage } from '../types.ts';
+import { askPedagogyAssistant } from '../services/geminiService';
+import { ChatMessage } from '../types';
 
 interface AIAssistantProps {
   currentSlideTitle: string;
@@ -40,7 +40,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ currentSlideTitle }) => {
   return (
     <div className="fixed bottom-24 right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        <div className="w-80 md:w-96 h-[500px] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <div className="w-80 md:w-96 h-[500px] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-4 animate-in fade-in slide-in-from-bottom-4">
           <div className="p-4 bg-indigo-600 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>

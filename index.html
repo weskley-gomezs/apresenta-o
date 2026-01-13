@@ -36,8 +36,6 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        .tracking-tightest { letter-spacing: -0.05em; }
-
         /* Animation Utilities for Content */
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.98) translateY(10px); }
@@ -48,6 +46,20 @@
             animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(1rem); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-in { animation: fadeIn 300ms ease-out forwards; }
+        .fade-in { animation: fadeIn 300ms ease-out forwards; }
+        .slide-in-from-bottom-4 { animation: slideInFromBottom 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
@@ -73,21 +85,10 @@
             50% { opacity: 0.15; transform: scale(1.05); }
         }
 
-        .animate-drift {
-            animation: drift 20s ease-in-out infinite;
-        }
-
-        .animate-drift-reverse {
-            animation: drift 25s ease-in-out infinite reverse;
-        }
-
-        .animate-orbit {
-            animation: orbit 30s linear infinite;
-        }
-
-        .animate-pulse-glow {
-            animation: pulse-glow 10s ease-in-out infinite;
-        }
+        .animate-drift { animation: drift 20s ease-in-out infinite; }
+        .animate-drift-reverse { animation: drift 25s ease-in-out infinite reverse; }
+        .animate-orbit { animation: orbit 30s linear infinite; }
+        .animate-pulse-glow { animation: pulse-glow 10s ease-in-out infinite; }
     </style>
 <script type="importmap">
 {
@@ -104,5 +105,6 @@
 </head>
 <body class="bg-slate-900 text-slate-200">
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

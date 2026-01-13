@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SlideData } from '../types.ts';
+import { SlideData } from '../types';
 
 interface SlideProps {
   data: SlideData;

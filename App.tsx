@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { SLIDES } from './constants.ts';
-import Slide from './components/Slide.tsx';
-import AIAssistant from './components/AIAssistant.tsx';
+import { SLIDES } from './constants';
+import Slide from './components/Slide';
+import AIAssistant from './components/AIAssistant';
 
 const App: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -30,35 +30,28 @@ const App: React.FC = () => {
 
   const progress = ((currentSlideIndex + 1) / SLIDES.length) * 100;
 
-  // Parallax offsets based on current index
   const parallaxOffset = useMemo(() => currentSlideIndex * -30, [currentSlideIndex]);
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-slate-950 flex flex-col">
-      {/* Dynamic Animated Background with Parallax */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Layer 1: Deep Slow Mesh (Slight movement) */}
         <div 
           className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-indigo-600/20 blur-[120px] rounded-full animate-drift transition-transform duration-1000 ease-out"
           style={{ transform: `translateX(${parallaxOffset * 0.5}px)` }}
         ></div>
         
-        {/* Layer 2: Opposite Movement Mesh (Medium movement) */}
         <div 
           className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-600/20 blur-[120px] rounded-full animate-drift-reverse transition-transform duration-1000 ease-out"
           style={{ transform: `translateX(${parallaxOffset * -0.8}px)` }}
         ></div>
         
-        {/* Layer 3: Orbiting Light (Stronger movement) */}
         <div 
           className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[100px] rounded-full animate-orbit transition-transform duration-1000 ease-out"
           style={{ transform: `translateX(${parallaxOffset * 1.2}px)` }}
         ></div>
         
-        {/* Subtle texture overlay (Static) */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         
-        {/* Moving highlights (Dynamic Parallax) */}
         <div 
           className="absolute top-1/4 left-1/3 w-px h-px shadow-[0_0_250px_100px_rgba(99,102,241,0.15)] animate-pulse-glow transition-transform duration-1000 ease-out"
           style={{ transform: `translate(${parallaxOffset * 0.2}px, ${parallaxOffset * 0.1}px)` }}
@@ -69,20 +62,18 @@ const App: React.FC = () => {
         ></div>
       </div>
 
-      {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-slate-800/30 z-50">
         <div 
-          className="h-full bg-indigo-500 transition-all duration-700 cubic-bezier(0.16, 1, 0.3, 1) shadow-[0_0_15px_rgba(99,102,241,0.6)]"
+          className="h-full bg-indigo-500 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_15px_rgba(99,102,241,0.6)]"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
 
-      {/* Main Slide Container */}
       <main className="flex-1 relative flex items-center justify-center overflow-hidden z-10">
         {SLIDES.map((slide, index) => (
           <div 
             key={slide.id}
-            className={`absolute inset-0 transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${
+            className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               index === currentSlideIndex 
                 ? 'opacity-100 translate-x-0 scale-100 z-10' 
                 : index < currentSlideIndex 
@@ -95,7 +86,6 @@ const App: React.FC = () => {
         ))}
       </main>
 
-      {/* Footer Navigation */}
       <footer className="h-20 bg-slate-950/40 backdrop-blur-xl border-t border-white/5 flex items-center justify-between px-6 md:px-12 z-40 relative">
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10">
