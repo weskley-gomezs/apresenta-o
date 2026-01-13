@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 
 export const askPedagogyAssistant = async (prompt: string, currentSlideTitle: string) => {
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Contexto do slide atual: "${currentSlideTitle}". Pergunta do professor: "${prompt}". 

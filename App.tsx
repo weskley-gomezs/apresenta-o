@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { SLIDES } from './constants';
-import Slide from './components/Slide';
-import AIAssistant from './components/AIAssistant';
+import { SLIDES } from './constants.ts';
+import Slide from './components/Slide.tsx';
+import AIAssistant from './components/AIAssistant.tsx';
 
 const App: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);

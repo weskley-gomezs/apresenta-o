@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { askPedagogyAssistant } from '../services/geminiService';
-import { ChatMessage } from '../types';
+import { askPedagogyAssistant } from '../services/geminiService.ts';
+import { ChatMessage } from '../types.ts';
 
 interface AIAssistantProps {
   currentSlideTitle: string;
