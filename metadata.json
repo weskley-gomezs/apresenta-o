@@ -1,0 +1,8 @@
+{
+  "name": "IA na Educação: Inovações Pedagógicas",
+  "description": "Uma apresentação interativa sobre o papel da inteligência artificial na prática docente, com assistente pedagógico integrado via Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
